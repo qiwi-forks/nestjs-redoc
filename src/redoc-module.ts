@@ -58,8 +58,7 @@ export class RedocModule {
     document: OpenAPIObject
   ): Promise<RedocOptions> {
     try {
-      const validation  = await schema(document).validateAsync(options) as RedocOptions;
-      return validation;
+      return schema(document).validateAsync(options) as RedocOptions;
     } catch (error) {
       // Something went wrong while parsing config object
       throw new TypeError(error.message);
